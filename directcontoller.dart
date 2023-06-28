@@ -179,129 +179,129 @@ class DirectorController extends StateNotifier<DirectorModel> {
     }
   }
 
-  // Future<void> startStream() async {
-  //   List<TranscodingUser> transcodingUsers = [];
-  //   if (state.activeUsers.isEmpty) {
-  //   } else if (state.activeUsers.length == 1) {
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid, 0, 0, width: 1920, height: 1080, zOrder: 1, alpha: 1));
-  //   } else if (state.activeUsers.length == 2) {
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid, 0, 0, width: 960, height: 1080));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid, 960, 0, width: 960, height: 1080));
-  //   } else if (state.activeUsers.length == 3) {
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid, 0, 0, width: 640, height: 1080));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid, 640, 0, width: 640, height: 1080));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid, 1280, 0, width: 640, height: 1080));
-  //   } else if (state.activeUsers.length == 4) {
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid, 0, 0, width: 960, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid, 960, 0, width: 960, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid, 0, 540, width: 960, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(3).uid, 960, 540, width: 960, height: 540));
-  //   } else if (state.activeUsers.length == 5) {
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid, 0, 0, width: 640, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid, 640, 0, width: 640, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid, 1280, 0, width: 640, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(3).uid, 0, 540, width: 960, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(4).uid, 960, 540, width: 960, height: 540));
-  //   } else if (state.activeUsers.length == 6) {
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid, 0, 0, width: 640, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid, 640, 0, width: 640, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid, 1280, 0, width: 640, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(3).uid, 0, 540, width: 640, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(4).uid, 640, 540, width: 640, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(5).uid, 1280, 540, width: 640, height: 540));
-  //   } else if (state.activeUsers.length == 7) {
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid, 0, 0, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid, 480, 0, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid, 960, 0, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(3).uid, 1440, 0, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(4).uid, 0, 540, width: 640, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(5).uid, 640, 540, width: 640, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(6).uid, 1280, 540, width: 640, height: 540));
-  //   } else if (state.activeUsers.length == 8) {
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid, 0, 0, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid, 480, 0, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid, 960, 0, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(3).uid, 1440, 0, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(4).uid, 0, 540, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(5).uid, 480, 540, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(6).uid, 960, 540, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(7).uid, 1440, 540, width: 480, height: 540));
-  //   } else {
-  //     throw ("too many members");
-  //   }
-  //
-  //   LiveTranscoding transcoding = LiveTranscoding(
-  //     transcodingUsers,
-  //     width: 1920,
-  //     height: 1080,
-  //   );
-  //   state.engine!.setLiveTranscoding(transcoding);
-  //   for (int i = 0; i < state.destinations.length; i++) {
-  //     print("STREAMING TO: ${state.destinations[i].url}");
-  //     state.engine!.addPublishStreamUrl(state.destinations[i].url, true);
-  //   }
-  //
-  //   state = state.copyWith(isLive: true);
-  // }
-  //
-  // Future<void> updateStream() async {
-  //   List<TranscodingUser> transcodingUsers = [];
-  //   if (state.activeUsers.isEmpty) {
-  //   } else if (state.activeUsers.length == 1) {
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid, 0, 0, width: 1920, height: 1080, zOrder: 1, alpha: 1));
-  //   } else if (state.activeUsers.length == 2) {
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid, 0, 0, width: 960, height: 1080));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid, 960, 0, width: 960, height: 1080));
-  //   } else if (state.activeUsers.length == 3) {
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid, 0, 0, width: 640, height: 1080));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid, 640, 0, width: 640, height: 1080));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid, 1280, 0, width: 640, height: 1080));
-  //   } else if (state.activeUsers.length == 4) {
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid, 0, 0, width: 960, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid, 960, 0, width: 960, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid, 0, 540, width: 960, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(3).uid, 960, 540, width: 960, height: 540));
-  //   } else if (state.activeUsers.length == 5) {
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid, 0, 0, width: 640, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid, 640, 0, width: 640, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid, 1280, 0, width: 640, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(3).uid, 0, 540, width: 960, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(4).uid, 960, 540, width: 960, height: 540));
-  //   } else if (state.activeUsers.length == 6) {
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid, 0, 0, width: 640, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid, 640, 0, width: 640, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid, 1280, 0, width: 640, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(3).uid, 0, 540, width: 640, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(4).uid, 640, 540, width: 640, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(5).uid, 1280, 540, width: 640, height: 540));
-  //   } else if (state.activeUsers.length == 7) {
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid, 0, 0, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid, 480, 0, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid, 960, 0, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(3).uid, 1440, 0, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(4).uid, 0, 540, width: 640, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(5).uid, 640, 540, width: 640, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(6).uid, 1280, 540, width: 640, height: 540));
-  //   } else if (state.activeUsers.length == 8) {
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid, 0, 0, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid, 480, 0, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid, 960, 0, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(3).uid, 1440, 0, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(4).uid, 0, 540, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(5).uid, 480, 540, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(6).uid, 960, 540, width: 480, height: 540));
-  //     transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(7).uid, 1440, 540, width: 480, height: 540));
-  //   } else {
-  //     throw ("too many members");
-  //   }
-  //
-  //   LiveTranscoding transcoding = LiveTranscoding(
-  //     transcodingUsers,
-  //     width: 1920,
-  //     height: 1080,
-  //   );
-  //   state.engine!.setLiveTranscoding(transcoding);
-  // }
+  Future<void> startStream() async {
+    List<TranscodingUser> transcodingUsers = [];
+    if (state.activeUsers.isEmpty) {
+    } else if (state.activeUsers.length == 1) {
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid,  width: 1920, height: 1080, zOrder: 1, alpha: 1));
+    } else if (state.activeUsers.length == 2) {
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid,  width: 960, height: 1080));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid,  width: 960, height: 1080));
+    } else if (state.activeUsers.length == 3) {
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid, width: 640, height: 1080));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid,  width: 640, height: 1080));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid,  width: 640, height: 1080));
+    } else if (state.activeUsers.length == 4) {
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid,  width: 960, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid, width: 960, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid, width: 960, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(3).uid,  width: 960, height: 540));
+    } else if (state.activeUsers.length == 5) {
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid,  width: 640, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid,  width: 640, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid,  width: 640, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(3).uid,  width: 960, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(4).uid,  width: 960, height: 540));
+    } else if (state.activeUsers.length == 6) {
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid, width: 640, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid,  width: 640, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid,  width: 640, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(3).uid,  width: 640, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(4).uid,  width: 640, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(5).uid,  width: 640, height: 540));
+    } else if (state.activeUsers.length == 7) {
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid,  width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid,  width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid,  width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(3).uid, width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(4).uid,  width: 640, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(5).uid, width: 640, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(6).uid,  width: 640, height: 540));
+    } else if (state.activeUsers.length == 8) {
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid, width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid,  width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid,  width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(3).uid,  width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(4).uid,  width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(5).uid,  width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(6).uid, width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(7).uid,  width: 480, height: 540));
+    } else {
+      throw ("too many members");
+    }
+
+    LiveTranscoding transcoding = LiveTranscoding(
+      transcodingUsers,
+      width: 1920,
+      height: 1080,
+    );
+    state.engine!.setLiveTranscoding(transcoding);
+    for (int i = 0; i < state.destinations.length; i++) {
+      print("STREAMING TO: ${state.destinations[i].url}");
+      state.engine!.addPublishStreamUrl(state.destinations[i].url, true);
+    }
+
+    state = state.copyWith(isLive: true);
+  }
+
+  Future<void> updateStream() async {
+    List<TranscodingUser> transcodingUsers = [];
+    if (state.activeUsers.isEmpty) {
+    } else if (state.activeUsers.length == 1) {
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid,  width: 1920, height: 1080, zOrder: 1, alpha: 1));
+    } else if (state.activeUsers.length == 2) {
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid,  width: 960, height: 1080));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid,  width: 960, height: 1080));
+    } else if (state.activeUsers.length == 3) {
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid,  width: 640, height: 1080));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid,  width: 640, height: 1080));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid, width: 640, height: 1080));
+    } else if (state.activeUsers.length == 4) {
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid,width: 960, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid,  width: 960, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid,  width: 960, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(3).uid,  width: 960, height: 540));
+    } else if (state.activeUsers.length == 5) {
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid, width: 640, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid,  width: 640, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid, width: 640, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(3).uid, width: 960, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(4).uid,  width: 960, height: 540));
+    } else if (state.activeUsers.length == 6) {
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid, width: 640, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid,  width: 640, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid,  width: 640, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(3).uid, width: 640, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(4).uid,  width: 640, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(5).uid,  width: 640, height: 540));
+    } else if (state.activeUsers.length == 7) {
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid,  width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid,  width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid,  width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(3).uid,  width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(4).uid,  width: 640, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(5).uid,  width: 640, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(6).uid, width: 640, height: 540));
+    } else if (state.activeUsers.length == 8) {
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(0).uid,  width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(1).uid, width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(2).uid, width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(3).uid,  width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(4).uid,  width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(5).uid,  width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(6).uid,  width: 480, height: 540));
+      transcodingUsers.add(TranscodingUser(state.activeUsers.elementAt(7).uid,  width: 480, height: 540));
+    } else {
+      throw ("too many members");
+    }
+
+    LiveTranscoding transcoding = LiveTranscoding(
+      transcodingUsers,
+      width: 1920,
+      height: 1080,
+    );
+    state.engine!.setLiveTranscoding(transcoding);
+  }
 
   Future<void> endStream() async {
     for (int i = 0; i < state.destinations.length; i++) {
